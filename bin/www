@@ -3,8 +3,8 @@
 /**
  * Module dependencies.
  */
-
- var dotenv = require('dotenv')
+require('dotenv').config();
+console.log(process.env.DB_HOST)
 var app = require('../app');
 var debug = require('debug')('r-back:server');
 var http = require('http');
@@ -30,6 +30,7 @@ server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 
+console.log("There will be dragons at:" + port);
 /**
  * Normalize a port into a number, string, or false.
  */
