@@ -4,6 +4,7 @@
  * Module dependencies.
  */
 
+ var dotenv = require('dotenv')
 var app = require('../app');
 var debug = require('debug')('r-back:server');
 var http = require('http');
