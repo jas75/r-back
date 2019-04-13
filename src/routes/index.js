@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var userController = require('../controller/user-controller');
+var userController = require('../app/controllers/user-controller');
 var passport = require('passport');
 
 /* GET home page. */

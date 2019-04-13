@@ -7,7 +7,6 @@ var config = require('./src/config/config');
 var mongoose = require('mongoose');
 var passport = require('passport');
 
-
 var app = express();
 
 app.use(logger('dev'));
@@ -21,14 +20,13 @@ passport.use(passport.initialize());
 var passportMiddleware = require('./src/app/middleware/passport');
 passport.use(passportMiddleware);
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.get('/', function(req, res) {
+    return res.send('Hello! The API is at http:// localhost:3000/api');
+});
 
+app.use(express.static(path.join(__dirname, 'src/public')));
 
-// app.get('/', function(req, res) {
-//     return res.send('Hello! The API is at http:// localhost:' + process.env.PORT || '3000' + '/api')
-// });
-
-var routes = require('./src/app/routes/index.js');
+var routes = require('./src/routes/index.js');
 app.use('/api', routes);
 
 mongoose.connect(config.db, { useNewUrlParser: true, useCreateIndex: true });
@@ -43,6 +41,5 @@ connection.on('error', (err) => {
     console.log("MongoDb connection error. Please make sure MongoDB is running." + err);
     process.exit();
 });
-
 
 module.exports = app;

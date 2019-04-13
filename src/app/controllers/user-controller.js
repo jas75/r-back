@@ -6,7 +6,7 @@ var config = require('../../config/config');
 //TODO create a helper folder
 function createToken(user) {
     return jwt.sign({ id: user.id, email: user.email}, config.jwtSecret, {
-        expiresIn: 20
+        expiresIn: 86400
     });
 }
 
