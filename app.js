@@ -2,6 +2,10 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var bodyParser = require('body-parser');
+var config = require('./src/config/config');
+var mongoose = require('mongoose');
+var passport = require('passport');
 
 var indexRouter = require('./src/app/routes/index');
 var usersRouter = require('./src/app/routes/users');
