@@ -41,11 +41,11 @@ exports.registerUser = (req, res) => {
 
 
 exports.loginUser = (req, res) => {
-    if (!req.body.email || !req.body.password) {
+    if (!req.body.username || !req.body.password) {
         return res.status(400).json({ 'msg': 'You need to send mail and password'});
     }
 
-    User.findOne({ email: req.body.email }, (err, user) => {
+    User.findOne({ username: req.body.username }, (err, user) => {
         if (err) {
             return res.status(400).json({ 'msg': err});
         }
