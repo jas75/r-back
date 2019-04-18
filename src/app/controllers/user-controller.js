@@ -60,7 +60,8 @@ exports.loginUser = (req, res) => {
             if (isMatch && !err) {
                 // log successful
                 return res.status(200).json({
-                    token: createToken(user)
+                    token: createToken(user),
+                    username: user.username
                 })
                 
             } else {
