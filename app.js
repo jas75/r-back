@@ -28,8 +28,10 @@ app.get('/', function(req, res) {
 
 app.use(express.static(path.join(__dirname, 'src/public')));
 
-var routes = require('./src/routes/index.js');
-app.use('/api', routes);
+var indexRoutes = require('./src/routes/index.js');
+var postRoutes = require('./src/routes/post.js');
+app.use('/api', indexRoutes);
+app.use('/api/post', postRoutes);
 
 mongoose.connect(config.db, { useNewUrlParser: true, useCreateIndex: true });
 
