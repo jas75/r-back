@@ -61,11 +61,7 @@ exports.loginUser = (req, res) => {
                 // log successful
                 return res.status(200).json({
                     token: createToken(user),
-                    user: {
-                        _id: user._id,
-                        email: user.email,
-                        username: user.username
-                    }
+                    userid: user._id
                 })
                 
             } else {
