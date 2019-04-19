@@ -20,6 +20,4 @@ exports.createTextPost = (req, res) => {
         }
     }
 
-    
-
 }
