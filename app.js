@@ -30,8 +30,10 @@ app.use(express.static(path.join(__dirname, 'src/public')));
 
 var indexRoutes = require('./src/routes/index.js');
 var postRoutes = require('./src/routes/post.js');
+var userRoutes = require('./src/routes/users.js');
 app.use('/api', indexRoutes);
 app.use('/api/post', postRoutes);
+app.use('/api/user', userRoutes);
 
 mongoose.connect(config.db, { useNewUrlParser: true, useCreateIndex: true });
 
