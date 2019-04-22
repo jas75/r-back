@@ -3,7 +3,7 @@ var UserSchema = require('./user');
 
 var PostSchema = new mongoose.Schema({
     // user: UserSchema,
-    username: String,
+    userid: String,
     community: String,
     title: String,
     content: String
