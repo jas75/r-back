@@ -14,7 +14,7 @@ exports.createTextPost = (req, res) => {
                 if (err) {
                     return res.status(400).json({ success: false, msg: err });
                 }
-                return res.status(201).json({success:true, msg: "Post created"});
+                return res.status(201).json({success:true, msg: "Post created", post: post });
             });
         }
     }

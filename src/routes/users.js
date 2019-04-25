@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-router.get('/get-profile/:userid', passport.authenticate('jwt', { session:false }), userController.getUserProfile);
+router.get('/get-profile/:userid',  userController.getUserProfile);
 
 module.exports = router;
  
