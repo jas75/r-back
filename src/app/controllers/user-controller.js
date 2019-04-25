@@ -7,7 +7,7 @@ exports.getUserProfile = (req, res) => {
     } else {
         User.findOne({ _id: req.params.userid }, (err, user) => {
             if (err) {
-                return res.status(400).json({ success: false, err: err});
+                return res.status(400).json({ success: false, msg: err});
             }
     
             if (user) {
