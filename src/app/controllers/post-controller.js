@@ -4,7 +4,7 @@ var Post = require('./../models/post');
 exports.createTextPost = (req, res) => {
     let newPost = Post(req.body);
 
-    if (!req.body.userid) {
+    if (!req.body.username) {
         return res.status(400).json({ success: false, msg: "No username provided"});
     } else {
         if (!req.body.title) {
