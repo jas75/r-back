@@ -10,6 +10,7 @@ var cors = require('cors');
 
 var app = express();
 
+app.disable('etag');
 app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
