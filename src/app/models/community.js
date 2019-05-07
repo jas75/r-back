@@ -4,7 +4,7 @@ var CommunitySchema = new mongoose.Schema({
     // user: UserSchema,
     createdBy: String,
     createdAt: String,
-    title: String,
+    name: String,
     summary: String
 });
 
