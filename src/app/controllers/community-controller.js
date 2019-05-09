@@ -14,6 +14,10 @@ exports.createCommunity = (req, res) => {
         return res.status(400).json({ success: false, msg: 'Your community needs a name'});
     }
 
+    if (!req.body.topic) {
+        return res.status(400).json({ success: false, msg: 'Your community needs a topic'});
+    }
+
     let community =  Community(req.body);
 
     community.save((err, community) => {

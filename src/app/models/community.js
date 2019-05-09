@@ -5,6 +5,7 @@ var CommunitySchema = new mongoose.Schema({
     createdBy: String,
     createdAt: String,
     name: String,
+    topic: String,
     summary: String
 });
 
