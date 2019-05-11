@@ -29,3 +29,24 @@ exports.createCommunity = (req, res) => {
     })
     
 }
+
+
+exports.getCommunityById = (req, res) => {
+    
+    if (!req.params.communityid) {
+        return res.status(400).json({ success: false, msg: 'No community ID provided'})
+    }
+    Community.findOne({ _id: req.params.communityid }, (err, community) => {
+        if (err) {
+            return res.status(400).json({ success: false, msg: err})
+        }
+
+        if (!community) {
+            return res.status(400).json({ success: false, msg: 'No community found'})
+        }
+
+        if (community) {
+            return res.status(200).json({ success: true, community: community});
+        }
+    });
+}
