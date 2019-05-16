@@ -6,7 +6,11 @@ var PostSchema = new mongoose.Schema({
     username: String,
     community: String,
     title: String,
-    content: String
+    content: String,
+    newsApi: {
+        type: Boolean,
+        default: false
+    }
 });
 
 module.exports = mongoose.model('Post', PostSchema);
