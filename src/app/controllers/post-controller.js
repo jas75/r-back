@@ -95,7 +95,7 @@ exports.getAllNewsPosts = (req, res) => {
                                         if (err) {
                                             return res.status(400).json({ success: false, msg: err });
                                         }
-                                        resolve('test');
+                                        resolve();
                                     });
                                 }
                             });
@@ -146,7 +146,7 @@ exports.getAllNewsPosts = (req, res) => {
             if (err) {
                 return res.status(400).json({ success: false, msg: err });
             }
-            return res.status(200).json({ success: true, posts: posts});
+            return res.status(200).json(posts);
         });
     });
 
