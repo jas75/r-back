@@ -52,6 +52,8 @@ exports.getAllNewsPosts = (req, res) => {
             country: 'fr'
           }).then(response => {
     
+            console.log(response);
+            
             Community.findOne({ topic: 'News' }, (err, community) => {
                 if (err) {
                     return res.status(400).json({ success: false, msg: err });
@@ -87,7 +89,7 @@ exports.getAllNewsPosts = (req, res) => {
                                         username: 'Tadam',
                                         community: community.name,
                                         title: article.title,
-                                        content: article.content,   
+                                        content: article.content.substring(0, 250),   
                                         newsApi: true 
                                     });
     
@@ -104,9 +106,7 @@ exports.getAllNewsPosts = (req, res) => {
                 }
     
                 if (community) {
-                    console.log('il passe la pcq il a trouve la community');
                     for (let article of response.articles) {
-                        console.log('il passe dans la boucle');
                         // check that post don't already exists
                         Post.findOne({ title: article.title }, (err, postFound) => {
                             if (err) {
@@ -115,6 +115,10 @@ exports.getAllNewsPosts = (req, res) => {
                             if (postFound) {
                                 resolve();
                             }
+
+                            var test = article.content.substring(0, 250);
+
+                            // console.log(test);
     
                             // If it doesn't exist
                             if (!postFound) {
@@ -122,7 +126,7 @@ exports.getAllNewsPosts = (req, res) => {
                                     username: 'Tadam',
                                     community: community.name,
                                     title: article.title,
-                                    content: article.content,
+                                    content: test,
                                     newsApi: true 
                                 });
                                 
